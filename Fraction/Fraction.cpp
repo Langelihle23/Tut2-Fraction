@@ -10,10 +10,10 @@ private:
 public:
 	Fraction(int numer=0,int denom=1);
 	~Fraction();
-	Fraction Add();
-	Fraction Subtract();
-	Fraction Multiply();
-    Fraction Divide();
+	Fraction Add(Fraction number);
+	Fraction Subtract(Fraction number);
+	Fraction Multiply(Fraction number);
+	Fraction Divide(Fraction number);
 	int getNumerator();
 	int getDenominator();
 	void setNumerator(int numerator);
@@ -57,13 +57,25 @@ void Fraction::setDenominator(int den)
 
 
 
-Fraction Fraction::Add()
+Fraction Fraction::Add(Fraction number)
 {
+	return Fraction(numerator*number.denominator + numerator*number.denominator, denominator*number.denominator);
+}
 
+Fraction Fraction::Subtract(Fraction number)
+{
+	return Fraction(numerator*number.denominator - numerator*number.denominator, denominator*number.denominator);
 }
 
 
+Fraction Fraction::Multiply(Fraction number)
+{
+
+	return Fraction(numerator*number.numerator, denominator*number.denominator);
+}
 
 
-
-
+Fraction Fraction::Divide(Fraction number)
+{
+	return Fraction(numerator*number.denominator,denominator*number.numerator);
+}
