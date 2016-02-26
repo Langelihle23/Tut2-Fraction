@@ -79,3 +79,15 @@ Fraction Fraction::Divide(Fraction number)
 {
 	return Fraction(numerator*number.denominator,denominator*number.numerator);
 }
+
+void Fraction::Print()
+{
+
+	//check conditions before printing
+	if (numerator == 0)
+	{
+		cout << "The answer is 0." << endl;
+	}
+
+}
+
