@@ -1,40 +1,22 @@
 #include<iostream>
+#include "Fraction.h"
 
 using namespace std;
 
-class Fraction
-{
-private:
-	int numerator;
-	int denominator;
-public:
-	Fraction(int numer=0,int denom=1);
-	~Fraction();
-	Fraction Add(Fraction number);
-	Fraction Subtract(Fraction number);
-	Fraction Multiply(Fraction number);
-	Fraction Divide(Fraction number);
-	int getNumerator();
-	int getDenominator();
-	void setNumerator(int numerator);
-	void setDenominator(int denominator);
-	void Print();
-};
 
-
-
-Fraction::Fraction(int numer, int denom)
+Fraction::Fraction(int numer, int denom)  //Constructor definition
 {
 	numerator = numer;
 	denominator = denom;
 	
 }
 
-Fraction::~Fraction()
+Fraction::~Fraction()					//Destructor definition
 {
 
 }
 
+//Member function definitions
 int Fraction::getNumerator()
 {
 	return numerator;
@@ -82,12 +64,24 @@ Fraction Fraction::Divide(Fraction number)
 
 void Fraction::Print()
 {
-
+	int x, y;
 	//check conditions before printing
 	if (numerator == 0)
 	{
 		cout << "The answer is 0." << endl;
 	}
-
+	else if (denominator == 1)
+	{
+		cout << "The  answer is" << numerator;
+	}
+	else if (numerator > denominator)    //If the numerator is greater than the denominator, then change to a mixed number
+	{
+		x = numerator / denominator;
+		y = numerator % denominator;
+		cout << "The mixed number fraction is" << x << "and" << y << "/" << denominator << endl;
+	}
+	else
+		cout << "The result is" << numerator << "/" << denominator << endl;
 }
+
 
