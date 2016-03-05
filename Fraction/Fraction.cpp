@@ -84,4 +84,66 @@ void Fraction::Print()
 		cout << "The result is" << numerator << "/" << denominator << endl;
 }
 
+//Operator Overloading which implements addition, subtraction, multiplication and division as memeber functions
+Fraction Fraction::operator+(Fraction number)
+{
+	return Fraction(numerator*number.denominator + numerator*number.denominator, denominator*number.denominator);
+}
 
+Fraction Fraction::operator-(Fraction number)
+{
+	return Fraction(numerator*number.denominator - numerator*number.denominator, denominator*number.denominator);
+}
+
+Fraction Fraction::operator*(Fraction number)
+{
+	return Fraction(numerator*number.numerator, denominator*number.denominator);
+}
+
+Fraction Fraction::operator/(Fraction number)
+{
+	return Fraction(numerator*number.denominator, denominator*number.numerator);
+}
+
+
+int main()
+{
+	Fraction myFrac;
+	int num1, denom1, num2, denom2;
+	cout << "Please enter the numerator of frac1:" << endl;
+	cin >> num1;
+	cout << "Please enter the denominator of frac1:" << endl;
+	cin >> denom1;
+	cout << "Please enter the numerator of frac2:" << endl;
+	cin >> num2;
+	cout << "Please enter the denominator of frac2:" << endl;
+	cin >> denom2;
+	
+	int selection;
+	cout << "Please select which operation you would like to do:" << endl;
+	cout << "1.Add()" << endl;
+	cout << "2.Subtract()" << endl;
+	cout << "3.Multiply()" << endl;
+	cout << "4.Divide()" << endl;
+	cin >> selection;
+
+	Fraction a(2, 3);
+	Fraction b(1, 4);
+	Fraction c;
+	
+	if (selection == 1){
+		c = a + b;
+	}
+	else if (selection == 2){
+		c = a - b;
+	}
+	else if (selection == 3){
+		c = a * b;
+	}
+	else
+		c = a / b;
+
+	cin.get;
+	
+	return 0; 
+}

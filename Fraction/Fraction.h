@@ -15,11 +15,18 @@ public:
 	Fraction Subtract(Fraction number);
 	Fraction Multiply(Fraction number);
 	Fraction Divide(Fraction number);
+	//accessor and mutator member functions
 	int getNumerator();
 	int getDenominator();
 	void setNumerator(int numerator);
 	void setDenominator(int denominator);
 	void Print();
+
+	Fraction operator+(Fraction number);
+	Fraction operator-(Fraction number);
+	Fraction operator*(Fraction number);
+	Fraction operator/(Fraction number);
+
 };
 
 #endif
